@@ -3,57 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>API Banks - Em Breve</title>
+    <title>API Banks - Soluções em Core Bancário para Fintechs</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
+        /* Estilos básicos para o layout */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333;
+        }
+        header {
+            background-color: #004080;
+            color: #fff;
+            padding: 20px 0;
+        }
+        header .container {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            height: 100vh;
+            width: 90%;
+            margin: 0 auto;
+        }
+        header nav a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero {
+            background-image: url('banner.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            color: #fff;
+        }
+        .hero .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 48px;
             margin: 0;
         }
-        h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+        .section {
+            padding: 60px 0;
         }
-        p {
-            font-size: 20px;
-            margin-bottom: 30px;
+        .section .container {
+            width: 90%;
+            margin: 0 auto;
         }
-        .container {
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
             text-align: center;
         }
-        .gif-container {
+        .services, .expertise {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .service-item, .expertise-item {
+            width: 48%;
             margin-bottom: 20px;
         }
+        .service-item h3, .expertise-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
         footer {
-            position: absolute;
-            bottom: 10px;
-            font-size: 14px;
-            color: #555;
+            background-color: #f4f4f4;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+        }
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .service-item, .expertise-item {
+                width: 100%;
+            }
+            header .container {
+                flex-direction: column;
+            }
+            header nav {
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>API Banks</h1>
-        <p>Nosso site está em construção. Fique atento para mais novidades!</p>
-        
-        <!-- GIF animado de construção -->
-        <div class="gif-container">
-            <img src="https://i.gifer.com/VAyR.gif" alt="Site em construção">
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h2>API Banks</h2>
+            </div>
+            <nav>
+                <a href="#solucoes">Soluções</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#contato">Contato</a>
+            </nav>
         </div>
-    </div>
+    </header>
+
+    <!-- Seção Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Especialistas em Implantação de Core Bancário</h1>
+            <p>Foque no que realmente importa, nós cuidamos do seu core bancário.</p>
+        </div>
+    </section>
+
+    <!-- Seção Soluções -->
+    <section class="section" id="solucoes">
+        <div class="container">
+            <h2>Nossas Soluções</h2>
+            <div class="services">
+                <div class="service-item">
+                    <h3>Implantação de Core Bancário</h3>
+                    <p>Implementamos soluções completas de core bancário, personalizadas para atender às necessidades da sua fintech.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Sustentação e Suporte</h3>
+                    <p>Oferecemos suporte contínuo para garantir que sua operação bancária funcione sem interrupções.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Integração de APIs</h3>
+                    <p>Integramos diversas APIs bancárias para expandir as funcionalidades dos seus serviços financeiros.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Consultoria Especializada</h3>
+                    <p>Nossa equipe fornece consultoria para otimizar processos e assegurar conformidade regulatória.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Expertise -->
+    <section class="section" id="expertise" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2>Expertise em Banking as a Service</h2>
+            <div class="expertise">
+                <div class="expertise-item">
+                    <h3>Celcoin</h3>
+                    <p>Experiência na integração com a API da Celcoin para serviços financeiros diversos.</p>
+                    <a href="https://developers.celcoin.com.br/docs" target="_blank">Saiba mais</a>
+                </div>
+                <div class="expertise-item">
+                    <h3>Bankly</h3>
+                    <p>Especialistas em implementar soluções com a API da Bankly, ampliando suas ofertas bancárias.</p>
+                    <a href="https://docs.bankly.com.br/" target="_blank">Saiba mais</a>
+                </div>
+                <div class="expertise-item">
+                    <h3>Dock</h3>
+                    <p>Profissionais capacitados na utilização da API da Dock para serviços financeiros integrados.</p>
+                    <a href="https://lighthouse.dock.tech/" target="_blank">Saiba mais</a>
+                </div>
+                <div class="expertise-item">
+                    <h3>Asaas</h3>
+                    <p>Implementação eficaz com a API da Asaas para gestão financeira simplificada.</p>
+                    <a href="https://docs.asaas.com/reference/comece-por-aqui" target="_blank">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section class="section" id="contato">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <p>Pronto para levar sua fintech ao próximo nível? Fale conosco!</p>
+            <p>Email: contato@apibanks.com | Telefone: (11) 1234-5678</p>
+        </div>
+    </section>
 
     <!-- Rodapé -->
     <footer>
-        Todos os direitos reservados | Powered by API Banks
+        <p>&copy; 2023 API Banks. Todos os direitos reservados.</p>
     </footer>
+
 </body>
 </html>
+
 
