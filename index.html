@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Banks - Soluções em Core Bancário para Fintechs</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Estilos básicos para o layout */
+        /* Paleta de cores */
+        :root {
+            --primary-color: #003366; /* Azul escuro */
+            --secondary-color: #336699; /* Azul intermediário */
+            --accent-color: #99CCFF; /* Azul claro */
+            --background-color: #F0F4F7; /* Cinza muito claro */
+            --text-color: #333333; /* Cinza escuro */
+        }
+
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
+            color: var(--text-color);
+            background-color: var(--background-color);
         }
         header {
-            background-color: #004080;
+            background-color: var(--primary-color);
             color: #fff;
             padding: 20px 0;
         }
@@ -31,32 +39,19 @@
             font-weight: bold;
         }
         .hero {
-            background-image: url('fintech-growth.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
+            background-color: var(--secondary-color);
+            height: 200px;
             display: flex;
             align-items: center;
             color: #fff;
             position: relative;
-        }
-        /* Overlay escuro para melhorar a legibilidade do texto */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
         }
         .hero .container {
             position: relative;
             z-index: 2;
         }
         .hero h1 {
-            font-size: 48px;
+            font-size: 36px;
             margin: 0;
         }
         .section {
@@ -67,9 +62,10 @@
             margin: 0 auto;
         }
         .section h2 {
-            font-size: 36px;
+            font-size: 30px;
             margin-bottom: 40px;
             text-align: center;
+            color: var(--primary-color);
         }
         .services, .expertise {
             display: flex;
@@ -79,13 +75,22 @@
         .service-item, .expertise-item {
             width: 48%;
             margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .service-item h3, .expertise-item h3 {
             font-size: 24px;
             margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        .service-item p, .expertise-item p {
+            color: var(--text-color);
         }
         footer {
-            background-color: #f4f4f4;
+            background-color: var(--primary-color);
+            color: #fff;
             padding: 20px 0;
             text-align: center;
         }
@@ -117,6 +122,7 @@
             <nav>
                 <a href="#solucoes">Soluções</a>
                 <a href="#expertise">Expertise</a>
+                <a href="#boletim-focus">Boletim Focus</a>
                 <a href="#contato">Contato</a>
             </nav>
         </div>
@@ -156,7 +162,7 @@
     </section>
 
     <!-- Seção Expertise -->
-    <section class="section" id="expertise" style="background-color: #f9f9f9;">
+    <section class="section" id="expertise">
         <div class="container">
             <h2>Expertise em Banking as a Service</h2>
             <div class="expertise">
@@ -184,6 +190,16 @@
         </div>
     </section>
 
+    <!-- Seção Boletim Focus -->
+    <section class="section" id="boletim-focus" style="background-color: #fff;">
+        <div class="container">
+            <h2>Informações do Boletim Focus</h2>
+            <div id="focus-data">
+                <p>Carregando dados do Boletim Focus...</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Seção Contato -->
     <section class="section" id="contato">
         <div class="container">
@@ -197,6 +213,41 @@
     <footer>
         <p>&copy; 2023 API Banks. Todos os direitos reservados.</p>
     </footer>
+
+    <!-- Script para buscar dados do Boletim Focus -->
+    <script>
+        // Função para formatar datas
+        function formatarData(dataStr) {
+            const data = new Date(dataStr);
+            return data.toLocaleDateString('pt-BR');
+        }
+
+        // Função para buscar dados do Boletim Focus
+        async function buscarBoletimFocus() {
+            try {
+                const response = await fetch('https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativaMercadoMensais?$top=1&$orderby=Data desc&$format=json');
+                const data = await response.json();
+
+                const boletim = data.value[0];
+                const dataAtualizacao = formatarData(boletim.Data);
+
+                const conteudo = `
+                    <p><strong>Data:</strong> ${dataAtualizacao}</p>
+                    <p><strong>IPCA (12 meses):</strong> ${boletim.IPCA12Meses}%</p>
+                    <p><strong>PIB (12 meses):</strong> ${boletim.PIB12Meses}%</p>
+                    <p><strong>Taxa Selic (fim de período):</strong> ${boletim.Selic}%</p>
+                `;
+
+                document.getElementById('focus-data').innerHTML = conteudo;
+            } catch (error) {
+                document.getElementById('focus-data').innerHTML = '<p>Não foi possível carregar os dados do Boletim Focus.</p>';
+                console.error('Erro ao buscar dados do Boletim Focus:', error);
+            }
+        }
+
+        // Chama a função ao carregar a página
+        buscarBoletimFocus();
+    </script>
 
 </body>
 </html>
