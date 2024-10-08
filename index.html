@@ -92,6 +92,32 @@
         .service-item p, .expertise-item p {
             color: var(--text-color);
         }
+        /* Botão estilizado */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: var(--accent-color);
+        }
+        /* Estilo para hiperlinks */
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Alinhamento centralizado para as seções especificadas */
+        #indicadores .container,
+        #contato .container {
+            text-align: center;
+        }
         footer {
             background-color: var(--primary-color);
             color: #fff;
@@ -151,16 +177,16 @@
                     <p>Implementamos sistemas core bancários robustos e escaláveis, personalizados para suportar as operações essenciais do seu negócio, garantindo segurança e conformidade regulatória.</p>
                 </div>
                 <div class="service-item">
-                    <h3>Sustentação e Suporte N2</h3>
-                    <p>Oferecemos serviços de sustentação e suporte de Nível 2, com uma equipe especializada pronta para resolver incidentes e manter a continuidade dos seus serviços críticos.</p>
-                </div>
-                <div class="service-item">
                     <h3>Integração de APIs</h3>
-                    <p>IFacilitamos a integração de APIs para assegurar a comunicação eficiente entre diferentes sistemas e plataformas, aumentando a eficiência e a agilidade dos processos internos.</p>
+                    <p>Facilitamos a integração de APIs para assegurar a comunicação eficiente entre diferentes sistemas e plataformas, aumentando a eficiência e a agilidade dos processos internos.</p>
                 </div>
                 <div class="service-item">
                     <h3>Front-end e Back-end</h3>
-                    <p>Desenvolvemos soluções completas de front-end e back-end, criando interfaces desenhadas pelo seu time, além de sistemas de gerenciamento alinhado com o que há de relevante no mercado.</p>
+                    <p>Desenvolvemos soluções completas de front-end e back-end, criando interfaces desenhadas pelo seu time, além de sistemas de gerenciamento alinhados com o que há de relevante no mercado.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Sustentação e Suporte N2</h3>
+                    <p>Oferecemos serviços de sustentação e suporte de Nível 2, com uma equipe especializada pronta para resolver incidentes e manter a continuidade dos seus serviços críticos.</p>
                 </div>
             </div>
         </div>
@@ -174,22 +200,22 @@
                 <div class="expertise-item">
                     <h3>Celcoin</h3>
                     <p>Experiência na integração com a API da Celcoin para serviços financeiros diversos.</p>
-                    <a href="https://developers.celcoin.com.br/docs" target="_blank">Conheça</a>
+                    <a href="https://developers.celcoin.com.br/docs" target="_blank" class="button">Conheça</a>
                 </div>
                 <div class="expertise-item">
                     <h3>Bankly</h3>
                     <p>Especialistas em implementar soluções com a API da Bankly, ampliando suas ofertas bancárias.</p>
-                    <a href="https://docs.bankly.com.br/" target="_blank">Conheça</a>
+                    <a href="https://docs.bankly.com.br/" target="_blank" class="button">Conheça</a>
                 </div>
                 <div class="expertise-item">
                     <h3>Dock</h3>
                     <p>Profissionais capacitados na utilização da API da Dock para serviços financeiros integrados.</p>
-                    <a href="https://lighthouse.dock.tech/" target="_blank">Conheça</a>
+                    <a href="https://lighthouse.dock.tech/" target="_blank" class="button">Conheça</a>
                 </div>
                 <div class="expertise-item">
                     <h3>Asaas</h3>
                     <p>Implementação eficaz com a API da Asaas para gestão financeira simplificada.</p>
-                    <a href="https://docs.asaas.com/reference/comece-por-aqui" target="_blank">Conheça</a>
+                    <a href="https://docs.asaas.com/reference/comece-por-aqui" target="_blank" class="button">Conheça</a>
                 </div>
             </div>
         </div>
@@ -198,7 +224,7 @@
     <!-- Seção Indicadores Econômicos -->
     <section class="section" id="indicadores" style="background-color: #fff;">
         <div class="container">
-            <h2>Indicadores Econômicos </h2>
+            <h2>Indicadores Econômicos</h2>
             <div id="indicadores-data">
                 <p>Carregando indicadores econômicos...</p>
             </div>
@@ -209,7 +235,7 @@
     <section class="section" id="contato">
         <div class="container">
             <h2>Entre em Contato</h2>
-            <p>Pronto para levar sua fintech ao próximo nível? Fale conosco: contato@apibanks.com </p>
+            <p>Pronto para levar sua fintech ao próximo nível? Fale conosco: <a href="mailto:contato@apibanks.com">contato@apibanks.com</a></p>
         </div>
     </section>
 
@@ -258,3 +284,4 @@
 
 </body>
 </html>
+
