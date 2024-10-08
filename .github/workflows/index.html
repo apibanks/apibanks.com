@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Banks - Soluções em Core Bancário para Fintechs</title>
+    <style>
+        /* Paleta de cores */
+        :root {
+            --primary-color: #003366; /* Azul escuro */
+            --secondary-color: #336699; /* Azul intermediário */
+            --accent-color: #99CCFF; /* Azul claro */
+            --background-color: #F0F4F7; /* Cinza muito claro */
+            --text-color: #333333; /* Cinza escuro */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 20px 0;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: 0 auto;
+        }
+        header nav a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero {
+            background-color: var(--secondary-color);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            position: relative;
+            text-align: center;
+            justify-content: center;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .section {
+            padding: 60px 0;
+        }
+        .section .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .section h2 {
+            font-size: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+        .services, .expertise {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centraliza os itens */
+        }
+        .service-item, .expertise-item {
+            width: 300px; /* Largura fixa */
+            margin: 10px; /* Margem para espaçamento */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-sizing: border-box; /* Inclui padding na largura total */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Centraliza o texto dentro do item */
+        }
+        .service-item h3, .expertise-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        .service-item p, .expertise-item p {
+            color: var(--text-color);
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+        }
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .service-item, .expertise-item {
+                width: 100%;
+                margin: 10px 0;
+            }
+            header .container {
+                flex-direction: column;
+            }
+            header nav {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h2>API Banks</h2>
+            </div>
+            <nav>
+                <a href="#solucoes">Soluções</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#indicadores">Indicadores Econômicos</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Impulsionando o Crescimento da Sua Fintech</h1>
+            <p>Core bancário é commodity. Foque no seu diferencial.</p>
+        </div>
+    </section>
+
+    <!-- Seção Soluções -->
+    <section class="section" id="solucoes">
+        <div class="container">
+            <h2>Nossas Soluções</h2>
+            <div class="services">
+                <div class="service-item">
+                    <h3>Implantação de Core Bancário</h3>
+                    <p>Implementamos soluções completas de core bancário, personalizadas para atender às necessidades da sua fintech.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Sustentação e Suporte</h3>
+                    <p>Oferecemos suporte contínuo para garantir que sua operação bancária funcione sem interrupções.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Integração de APIs</h3>
+                    <p>Integramos diversas APIs bancárias para expandir as funcionalidades dos seus serviços financeiros.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Consultoria Especializada</h3>
+                    <p>Nossa equipe fornece consultoria para otimizar processos e assegurar conformidade regulatória.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Expertise -->
+    <section class="section" id="expertise">
+        <div class="container">
+            <h2>Expertise em Banking as a Service</h2>
+            <div class="expertise">
+                <div class="expertise-item">
+                    <h3>Celcoin</h3>
+                    <p>Experiência na integração com a API da Celcoin para serviços financeiros diversos.</p>
+                    <a href="https://developers.celcoin.com.br/docs" target="_blank">Conheça</a>
+                </div>
+                <div class="expertise-item">
+                    <h3>Bankly</h3>
+                    <p>Especialistas em implementar soluções com a API da Bankly, ampliando suas ofertas bancárias.</p>
+                    <a href="https://docs.bankly.com.br/" target="_blank">Conheça</a>
+                </div>
+                <div class="expertise-item">
+                    <h3>Dock</h3>
+                    <p>Profissionais capacitados na utilização da API da Dock para serviços financeiros integrados.</p>
+                    <a href="https://lighthouse.dock.tech/" target="_blank">Conheça</a>
+                </div>
+                <div class="expertise-item">
+                    <h3>Asaas</h3>
+                    <p>Implementação eficaz com a API da Asaas para gestão financeira simplificada.</p>
+                    <a href="https://docs.asaas.com/reference/comece-por-aqui" target="_blank">Conheça</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Indicadores Econômicos -->
+    <section class="section" id="indicadores" style="background-color: #fff;">
+        <div class="container">
+            <h2>Indicadores Econômicos </h2>
+            <div id="indicadores-data">
+                <p>Carregando indicadores econômicos...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section class="section" id="contato">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <p>Pronto para levar sua fintech ao próximo nível? Fale conosco: contato@apibanks.com </p>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2023 API Banks. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Script para buscar dados dos indicadores econômicos -->
+    <script>
+        async function buscarIndicadoresEconomicos() {
+            try {
+                // URLs das APIs
+                const urls = {
+                    selic: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json',
+                    ipca: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados/ultimos/1?formato=json'
+                };
+
+                // Fetch para a Taxa SELIC
+                const respostaSelic = await fetch(urls.selic);
+                const dadosSelic = await respostaSelic.json();
+                const selicData = dadosSelic[0];
+
+                // Fetch para o IPCA
+                const respostaIPCA = await fetch(urls.ipca);
+                const dadosIPCA = await respostaIPCA.json();
+                const ipcaData = dadosIPCA[0];
+
+                // Conteúdo a ser exibido
+                const conteudo = `
+                    <p><strong>Taxa SELIC (${selicData.data}):</strong> ${parseFloat(selicData.valor).toFixed(2)}%</p>
+                    <p><strong>IPCA (${ipcaData.data}):</strong> ${parseFloat(ipcaData.valor).toFixed(2)}%</p>
+                `;
+
+                document.getElementById('indicadores-data').innerHTML = conteudo;
+
+            } catch (error) {
+                document.getElementById('indicadores-data').innerHTML = '<p>Não foi possível carregar os indicadores econômicos.</p>';
+                console.error('Erro ao buscar indicadores econômicos:', error);
+            }
+        }
+
+        // Chama a função ao carregar a página
+        buscarIndicadoresEconomicos();
+    </script>
+
+</body>
+</html>
