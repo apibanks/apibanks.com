@@ -45,6 +45,8 @@
             align-items: center;
             color: #fff;
             position: relative;
+            text-align: center;
+            justify-content: center;
         }
         .hero .container {
             position: relative;
@@ -70,15 +72,17 @@
         .services, .expertise {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center; /* Centraliza os itens */
         }
         .service-item, .expertise-item {
-            width: 48%;
-            margin-bottom: 20px;
+            width: 300px; /* Largura fixa */
+            margin: 10px; /* Margem para espaçamento */
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
+            box-sizing: border-box; /* Inclui padding na largura total */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Centraliza o texto dentro do item */
         }
         .service-item h3, .expertise-item h3 {
             font-size: 24px;
@@ -101,6 +105,7 @@
         @media (max-width: 768px) {
             .service-item, .expertise-item {
                 width: 100%;
+                margin: 10px 0;
             }
             header .container {
                 flex-direction: column;
@@ -122,7 +127,7 @@
             <nav>
                 <a href="#solucoes">Soluções</a>
                 <a href="#expertise">Expertise</a>
-                <a href="#boletim-focus">Boletim Focus</a>
+                <a href="#indicadores">Indicadores Econômicos</a>
                 <a href="#contato">Contato</a>
             </nav>
         </div>
@@ -190,12 +195,12 @@
         </div>
     </section>
 
-    <!-- Seção Boletim Focus -->
-    <section class="section" id="boletim-focus" style="background-color: #fff;">
+    <!-- Seção Indicadores Econômicos -->
+    <section class="section" id="indicadores" style="background-color: #fff;">
         <div class="container">
-            <h2>Informações do Boletim Focus</h2>
-            <div id="focus-data">
-                <p>Carregando dados do Boletim Focus...</p>
+            <h2>Indicadores Econômicos Atuais</h2>
+            <div id="indicadores-data">
+                <p>Carregando indicadores econômicos...</p>
             </div>
         </div>
     </section>
@@ -214,41 +219,43 @@
         <p>&copy; 2023 API Banks. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Script para buscar dados do Boletim Focus -->
+    <!-- Script para buscar dados dos indicadores econômicos -->
     <script>
-        // Função para formatar datas
-        function formatarData(dataStr) {
-            const data = new Date(dataStr);
-            return data.toLocaleDateString('pt-BR');
-        }
-
-        // Função para buscar dados do Boletim Focus
-        async function buscarBoletimFocus() {
+        async function buscarIndicadoresEconomicos() {
             try {
-                const response = await fetch('https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativaMercadoMensais?$top=1&$orderby=Data desc&$format=json');
-                const data = await response.json();
+                // URLs das APIs
+                const urls = {
+                    selic: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json',
+                    ipca: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados/ultimos/1?formato=json'
+                };
 
-                const boletim = data.value[0];
-                const dataAtualizacao = formatarData(boletim.Data);
+                // Fetch para a Taxa SELIC
+                const respostaSelic = await fetch(urls.selic);
+                const dadosSelic = await respostaSelic.json();
+                const selicData = dadosSelic[0];
 
+                // Fetch para o IPCA
+                const respostaIPCA = await fetch(urls.ipca);
+                const dadosIPCA = await respostaIPCA.json();
+                const ipcaData = dadosIPCA[0];
+
+                // Conteúdo a ser exibido
                 const conteudo = `
-                    <p><strong>Data:</strong> ${dataAtualizacao}</p>
-                    <p><strong>IPCA (12 meses):</strong> ${boletim.IPCA12Meses}%</p>
-                    <p><strong>PIB (12 meses):</strong> ${boletim.PIB12Meses}%</p>
-                    <p><strong>Taxa Selic (fim de período):</strong> ${boletim.Selic}%</p>
+                    <p><strong>Taxa SELIC (${selicData.data}):</strong> ${parseFloat(selicData.valor).toFixed(2)}%</p>
+                    <p><strong>IPCA (${ipcaData.data}):</strong> ${parseFloat(ipcaData.valor).toFixed(2)}%</p>
                 `;
 
-                document.getElementById('focus-data').innerHTML = conteudo;
+                document.getElementById('indicadores-data').innerHTML = conteudo;
+
             } catch (error) {
-                document.getElementById('focus-data').innerHTML = '<p>Não foi possível carregar os dados do Boletim Focus.</p>';
-                console.error('Erro ao buscar dados do Boletim Focus:', error);
+                document.getElementById('indicadores-data').innerHTML = '<p>Não foi possível carregar os indicadores econômicos.</p>';
+                console.error('Erro ao buscar indicadores econômicos:', error);
             }
         }
 
         // Chama a função ao carregar a página
-        buscarBoletimFocus();
+        buscarIndicadoresEconomicos();
     </script>
 
 </body>
 </html>
-
