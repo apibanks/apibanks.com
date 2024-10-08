@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Metadados essenciais -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Banks | Core Bancário para Fintechs</title>
+    <title>API Banks | We deploy it</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- Outros favicons (se necessário) -->
-
-    <!-- Estilos -->
     <style>
         /* Paleta de cores */
         :root {
@@ -39,18 +33,6 @@
             width: 90%;
             margin: 0 auto;
         }
-        header .logo {
-            display: flex;
-            align-items: center;
-        }
-        header .logo img {
-            height: 50px;
-            margin-right: 10px;
-        }
-        header .logo h2 {
-            margin: 0;
-            color: #fff;
-        }
         header nav a {
             color: #fff;
             margin-left: 20px;
@@ -59,16 +41,20 @@
         }
         .hero {
             background-color: var(--secondary-color);
-            padding: 60px 0;
+            height: 200px;
+            display: flex;
+            align-items: center;
             color: #fff;
+            position: relative;
             text-align: center;
+            justify-content: center;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
         .hero h1 {
             font-size: 36px;
-            margin: 0 0 10px 0;
-        }
-        .hero p {
-            font-size: 20px;
             margin: 0;
         }
         .section {
@@ -87,17 +73,17 @@
         .services, .expertise {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: center; /* Centraliza os itens */
         }
         .service-item, .expertise-item {
-            width: 300px;
-            margin: 10px;
+            width: 300px; /* Largura fixa */
+            margin: 10px; /* Margem para espaçamento */
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-sizing: border-box;
+            box-sizing: border-box; /* Inclui padding na largura total */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            text-align: center; /* Centraliza o texto dentro do item */
         }
         .service-item h3, .expertise-item h3 {
             font-size: 24px;
@@ -163,7 +149,6 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="Logo.png" alt="API Banks Logo">
                 <h2>API Banks</h2>
             </div>
             <nav>
@@ -179,7 +164,7 @@
     <section class="hero">
         <div class="container">
             <h1>Core bancário é commodity</h1>
-            <p>Foque no seu diferencial e liberte sua equipe para inovar</p>
+            <p>Foque no seu diferencial e liberte sua equipe para Inovar</p>
         </div>
     </section>
 
@@ -188,8 +173,22 @@
         <div class="container">
             <h2>Nossas Soluções</h2>
             <div class="services">
-                <!-- Conteúdo das soluções (permanece o mesmo) -->
-                <!-- ... -->
+                <div class="service-item">
+                    <h3>Implantação de Core Bancário</h3>
+                    <p>Implementamos sistemas core bancários robustos e escaláveis, personalizados para suportar as operações essenciais do seu negócio, garantindo segurança e conformidade regulatória.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Integração de APIs</h3>
+                    <p>Facilitamos a integração de APIs para assegurar a comunicação eficiente entre diferentes sistemas e plataformas, aumentando a eficiência e a agilidade dos processos internos.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Front e Back</h3>
+                    <p>Desenvolvemos soluções completas de front-end e back-end, criando interfaces desenhadas pelo seu time, além de sistemas de gerenciamento alinhados com o que há de relevante no mercado.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Sustentação e Suporte N2</h3>
+                    <p>Oferecemos serviços de sustentação e suporte de Nível 2, com uma equipe especializada pronta para resolver incidentes e manter a continuidade dos seus serviços críticos.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -199,8 +198,26 @@
         <div class="container">
             <h2>Expertise em Banking as a Service</h2>
             <div class="expertise">
-                <!-- Conteúdo da expertise (permanece o mesmo) -->
-                <!-- ... -->
+                <div class="expertise-item">
+                    <h3>Celcoin</h3>
+                    <p>Experiência na integração com a API da Celcoin para serviços financeiros diversos.</p>
+                    <a href="https://developers.celcoin.com.br/docs" target="_blank" class="button">Conheça</a>
+                </div>
+                <div class="expertise-item">
+                    <h3>Bankly</h3>
+                    <p>Especialistas em implementar soluções com a API da Bankly, ampliando suas ofertas bancárias.</p>
+                    <a href="https://docs.bankly.com.br/" target="_blank" class="button">Conheça</a>
+                </div>
+                <div class="expertise-item">
+                    <h3>Dock</h3>
+                    <p>Profissionais capacitados na utilização da API da Dock para serviços financeiros integrados.</p>
+                    <a href="https://lighthouse.dock.tech/" target="_blank" class="button">Conheça</a>
+                </div>
+                <div class="expertise-item">
+                    <h3>Asaas</h3>
+                    <p>Implementação eficaz com a API da Asaas para gestão financeira simplificada.</p>
+                    <a href="https://docs.asaas.com/reference/comece-por-aqui" target="_blank" class="button">Conheça</a>
+                </div>
             </div>
         </div>
     </section>
@@ -225,12 +242,11 @@
 
     <!-- Rodapé -->
     <footer>
-        <p>&copy; 2024 API Banks. Todos os direitos reservados.</p>
+        <p>&copy; 2023 API Banks. Todos os direitos reservados.</p>
     </footer>
 
     <!-- Script para buscar dados dos indicadores econômicos -->
     <script>
-        // Seu script permanece o mesmo
         async function buscarIndicadoresEconomicos() {
             try {
                 // URLs das APIs
@@ -250,10 +266,10 @@
                 const ipcaData = dadosIPCA[0];
 
                 // Conteúdo a ser exibido
-                const conteudo = `
+                const conteudo = 
                     <p><strong>Taxa SELIC (${selicData.data}):</strong> ${parseFloat(selicData.valor).toFixed(2)}%</p>
                     <p><strong>IPCA (${ipcaData.data}):</strong> ${parseFloat(ipcaData.valor).toFixed(2)}%</p>
-                `;
+                ;
 
                 document.getElementById('indicadores-data').innerHTML = conteudo;
 
