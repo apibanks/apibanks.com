@@ -266,10 +266,10 @@
                 const ipcaData = dadosIPCA[0];
 
                 // Conteúdo a ser exibido
-                const conteudo = 
+                const conteudo = `
                     <p><strong>Taxa SELIC (${selicData.data}):</strong> ${parseFloat(selicData.valor).toFixed(2)}%</p>
                     <p><strong>IPCA (${ipcaData.data}):</strong> ${parseFloat(ipcaData.valor).toFixed(2)}%</p>
-                ;
+                `;
 
                 document.getElementById('indicadores-data').innerHTML = conteudo;
 
