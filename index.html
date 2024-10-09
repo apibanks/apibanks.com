@@ -43,10 +43,20 @@
             text-decoration: none;
             font-weight: bold;
         }
+        .logo {
+            display: flex;
+            flex-direction: column; /* Organiza o símbolo e o nome em coluna */
+            align-items: center; /* Centraliza horizontalmente */
+        }
+
         .logo-symbol {
-            font-size: 1.5em;
-            color: var(--accent-color);
-            margin-right: 10px;
+            font-size: 2em; /* Tamanho do símbolo */
+            color: var(--accent-color); /* Cor do símbolo */
+            margin-bottom: 5px; /* Espaço entre o símbolo e o nome */
+        }
+
+        h2 {
+            margin: 0;
         }
         .hero {
             background-color: var(--secondary-color);
@@ -149,22 +159,6 @@
             header nav {
                 margin-top: 10px;
             }
-        }
-
-                .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .logo-symbol {
-            font-size: 2em; 
-            color: var(--accent-color); 
-            margin-bottom: 5px; 
-        }
-
-        h2 {
-            margin: 0;
         }
 
         /* Estilos para o ticker horizontal */
