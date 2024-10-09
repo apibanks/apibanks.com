@@ -322,12 +322,12 @@
                 const ofertaPJData = dadosOfertaPJ[0];
                 // Ajustando valores
                 // Oferta de Crédito PF e PJ: valores em Milhões de R$, multiplicar por 1.000.000 para R$
-                const ofertaPFValor = parseFloat(ofertaPFData.valor) * 1_000_000;
-                const ofertaPJValor = parseFloat(ofertaPJData.valor) * 1_000_000;
+                const ofertaPFValor = parseFloat(ofertaPFData.valor) * 1;
+                const ofertaPJValor = parseFloat(ofertaPJData.valor) * 1;
 
                 // Dividir por 1.000.000.000 para mostrar em bilhões de reais
-                const ofertaPFBilhoes = ofertaPFValor / 1_000_000;
-                const ofertaPJBilhoes = ofertaPJValor / 1_000_000;
+                const ofertaPFBilhoes = ofertaPFValor / 1;
+                const ofertaPJBilhoes = ofertaPJValor / 1;
 
                 // Formatando os dados
                 const indicadores = [
