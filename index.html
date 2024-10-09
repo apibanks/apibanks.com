@@ -4,7 +4,7 @@
     <!-- Metadados essenciais -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Banks | We deploy it</title>
+    <title>API Banks | Deploy</title>
 
     <style>
         /* Paleta de cores */
@@ -337,7 +337,7 @@
 
                 // Poupança: valores em R$ Mil, multiplicar por 1.000 para R$
                 const poupancaValor = parseFloat(poupancaData.valor) * 1_000;
-                const poupancaBilhoes = poupancaValor / 1_000_000_000;
+                const poupancaBilhoes = poupancaValor / 1_000_000;
 
                 // Formatando os dados
                 const indicadores = [
@@ -347,7 +347,7 @@
                     `Inadimplência PJ (${inadPJData.data}): ${parseFloat(inadPJData.valor).toFixed(2)}%`,
                     `Oferta de Crédito PF (${ofertaPFData.data}): R$ ${ofertaPFBilhoes.toFixed(2)} bilhões`,
                     `Oferta de Crédito PJ (${ofertaPJData.data}): R$ ${ofertaPJBilhoes.toFixed(2)} bilhões`,
-                    `Saldo da Poupança (${poupancaData.data}): R$ ${poupancaBilhoes.toFixed(2)} bilhões`
+                    `Saldo da Poupança (${poupancaData.data}): R$ ${poupancaBilhoes.toFixed(2)} milhões`
                 ];
 
                 // Exibindo os indicadores em um ticker horizontal
