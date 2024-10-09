@@ -286,7 +286,6 @@
                     inadimplenciaPJ: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.21118/dados/ultimos/1?formato=json',
                     ofertaCreditoPF: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.20629/dados/ultimos/1?formato=json',
                     ofertaCreditoPJ: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.20624/dados/ultimos/1?formato=json',
-                    poupanca: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.25/dados/ultimos/1?formato=json'
                 };
 
                 // Fazendo as requisições em paralelo
@@ -297,7 +296,6 @@
                     respostaInadPJ,
                     respostaOfertaPF,
                     respostaOfertaPJ,
-                    respostaPoupanca
                 ] = await Promise.all([
                     fetch(urls.selic),
                     fetch(urls.ipca),
@@ -305,7 +303,6 @@
                     fetch(urls.inadimplenciaPJ),
                     fetch(urls.ofertaCreditoPF),
                     fetch(urls.ofertaCreditoPJ),
-                    fetch(urls.poupanca)
                 ]);
 
                 // Processando as respostas
@@ -315,7 +312,6 @@
                 const dadosInadPJ = await respostaInadPJ.json();
                 const dadosOfertaPF = await respostaOfertaPF.json();
                 const dadosOfertaPJ = await respostaOfertaPJ.json();
-                const dadosPoupanca = await respostaPoupanca.json();
 
                 // Extraindo os dados
                 const selicData = dadosSelic[0];
@@ -324,20 +320,14 @@
                 const inadPJData = dadosInadPJ[0];
                 const ofertaPFData = dadosOfertaPF[0];
                 const ofertaPJData = dadosOfertaPJ[0];
-                const poupancaData = dadosPoupanca[0];
-
                 // Ajustando valores
                 // Oferta de Crédito PF e PJ: valores em Milhões de R$, multiplicar por 1.000.000 para R$
                 const ofertaPFValor = parseFloat(ofertaPFData.valor) * 1_000_000;
                 const ofertaPJValor = parseFloat(ofertaPJData.valor) * 1_000_000;
 
                 // Dividir por 1.000.000.000 para mostrar em bilhões de reais
-                const ofertaPFBilhoes = ofertaPFValor / 1_000_000_000;
-                const ofertaPJBilhoes = ofertaPJValor / 1_000_000_000;
-
-                // Poupança: valores em R$ Mil, multiplicar por 1.000 para R$
-                const poupancaValor = parseFloat(poupancaData.valor) * 1_000;
-                const poupancaBilhoes = poupancaValor / 1_000_000_000;
+                const ofertaPFBilhoes = ofertaPFValor / 1_000_000;
+                const ofertaPJBilhoes = ofertaPJValor / 1_000_000;
 
                 // Formatando os dados
                 const indicadores = [
@@ -345,9 +335,8 @@
                     `IPCA (${ipcaData.data}): ${parseFloat(ipcaData.valor).toFixed(2)}%`,
                     `Inadimplência PF (${inadPFData.data}): ${parseFloat(inadPFData.valor).toFixed(2)}%`,
                     `Inadimplência PJ (${inadPJData.data}): ${parseFloat(inadPJData.valor).toFixed(2)}%`,
-                    `Oferta de Crédito PF (${ofertaPFData.data}): R$ ${ofertaPFBilhoes.toFixed(2)} bilhões`,
-                    `Oferta de Crédito PJ (${ofertaPJData.data}): R$ ${ofertaPJBilhoes.toFixed(2)} bilhões`,
-                    //`Saldo da Poupança (${poupancaData.data}): R$ ${poupancaBilhoes.toFixed(2)} bilhões`
+                    `Oferta de Crédito PF (${ofertaPFData.data}): R$ ${ofertaPFBilhoes.toFixed(2)} milhões`,
+                    `Oferta de Crédito PJ (${ofertaPJData.data}): R$ ${ofertaPJBilhoes.toFixed(2)} milhões`,
                 ];
 
                 // Exibindo os indicadores em um ticker horizontal
