@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Banks | Deploy</title>
 
+    <!-- Link para o favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
     <style>
         /* Paleta de cores */
         :root {
             --primary-color: #003366; /* Azul escuro */
             --secondary-color: #336699; /* Azul intermediário */
-            --accent-color: #99CCFF; /* Azul claro */
+            --accent-color: #99CCFF;   /* Azul claro */
             --background-color: #F0F4F7; /* Cinza muito claro */
-            --text-color: #333333; /* Cinza escuro */
+            --text-color: #333333;     /* Cinza escuro */
         }
 
         body {
@@ -39,6 +42,11 @@
             margin-left: 20px;
             text-decoration: none;
             font-weight: bold;
+        }
+        .logo-symbol {
+            font-size: 1.5em;
+            color: var(--accent-color);
+            margin-right: 10px;
         }
         .hero {
             background-color: var(--secondary-color);
@@ -74,17 +82,17 @@
         .services, .expertise {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Centraliza os itens */
+            justify-content: center;
         }
         .service-item, .expertise-item {
-            width: 300px; /* Largura fixa */
-            margin: 10px; /* Margem para espaçamento */
+            width: 300px;
+            margin: 10px;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-sizing: border-box; /* Inclui padding na largura total */
+            box-sizing: border-box;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center; /* Centraliza o texto dentro do item */
+            text-align: center;
         }
         .service-item h3, .expertise-item h3 {
             font-size: 24px;
@@ -161,7 +169,7 @@
             display: inline-block;
             margin-right: 50px;
             font-size: 16px;
-            color: var(--text-color); /* Ajustado para combinar com o padrão visual */
+            color: var(--text-color);
         }
         @keyframes ticker {
             0% {
@@ -179,7 +187,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <h2>API Banks</h2>
+                <h2><span class="logo-symbol">&gt;</span> API Banks</h2>
             </div>
             <nav>
                 <a href="#solucoes">Soluções</a>
@@ -320,6 +328,7 @@
                 const inadPJData = dadosInadPJ[0];
                 const ofertaPFData = dadosOfertaPF[0];
                 const ofertaPJData = dadosOfertaPJ[0];
+
                 // Ajustando valores
                 // Oferta de Crédito PF e PJ: valores em Milhões de R$, multiplicar por 1.000.000 para R$
                 const ofertaPFValor = parseFloat(ofertaPFData.valor) * 1_000_000;
@@ -370,3 +379,4 @@
 
 </body>
 </html>
+
