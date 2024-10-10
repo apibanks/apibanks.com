@@ -45,8 +45,8 @@
         }
         .logo {
             display: flex;
-            flex-direction: column; /* Organiza o símbolo e o nome em coluna */
-            align-items: center; /* Centraliza horizontalmente */
+            flex-direction: column;
+            align-items: center; /* Centraliza os itens horizontalmente */
         }
 
         .logo-symbol {
@@ -58,137 +58,6 @@
         h2 {
             margin: 0;
         }
-        .hero {
-            background-color: var(--secondary-color);
-            height: 200px;
-            display: flex;
-            align-items: center;
-            color: #fff;
-            position: relative;
-            text-align: center;
-            justify-content: center;
-        }
-        .hero .container {
-            position: relative;
-            z-index: 2;
-        }
-        .hero h1 {
-            font-size: 36px;
-            margin: 0;
-        }
-        .section {
-            padding: 60px 0;
-        }
-        .section .container {
-            width: 90%;
-            margin: 0 auto;
-        }
-        .section h2 {
-            font-size: 30px;
-            margin-bottom: 40px;
-            text-align: center;
-            color: var(--primary-color);
-        }
-        .services, .expertise {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .service-item, .expertise-item {
-            width: 300px;
-            margin: 10px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-sizing: border-box;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .service-item h3, .expertise-item h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: var(--secondary-color);
-        }
-        .service-item p, .expertise-item p {
-            color: var(--text-color);
-        }
-        /* Botão estilizado */
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: var(--secondary-color);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        .button:hover {
-            background-color: var(--accent-color);
-        }
-        /* Estilo para hiperlinks */
-        a {
-            color: var(--secondary-color);
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        /* Alinhamento centralizado para as seções especificadas */
-        #indicadores .container,
-        #contato .container {
-            text-align: center;
-        }
-        footer {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-        footer p {
-            margin: 0;
-        }
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .service-item, .expertise-item {
-                width: 100%;
-                margin: 10px 0;
-            }
-            header .container {
-                flex-direction: column;
-            }
-            header nav {
-                margin-top: 10px;
-            }
-        }
-
-        /* Estilos para o ticker horizontal */
-        #indicadores-data {
-            overflow: hidden;
-            background-color: var(--background-color);
-            border-top: 1px solid #ccc;
-            border-bottom: 1px solid #ccc;
-            padding: 10px 0;
-            position: relative;
-        }
-        .ticker-content {
-            display: inline-block;
-            white-space: nowrap;
-            animation: ticker 30s linear infinite;
-        }
-        .ticker-content span {
-            display: inline-block;
-            margin-right: 50px;
-            font-size: 16px;
-            color: var(--text-color);
-        }
-        @keyframes ticker {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
     </style>
 </head>
 <body>
@@ -197,7 +66,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <h2><span class="logo-symbol">&gt;</div>
+                <div class="logo-symbol">&gt;</div>
                 <h2>API Banks</h2>
             </div>
             <nav>
@@ -216,7 +85,6 @@
             <p>Foque no seu diferencial e liberte sua equipe para inovar</p>
         </div>
     </section>
-
     <!-- Seção Soluções -->
     <section class="section" id="solucoes">
         <div class="container">
