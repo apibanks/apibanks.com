@@ -294,97 +294,11 @@
 
     <!-- Seção Indicadores Econômicos -->
     <section class="section" id="indicadores">
-<!-- Script para buscar dados dos indicadores econômicos -->
-<script>
-    async function buscarIndicadoresEconomicos() {
-        try {
-            // URLs das APIs
-            const urls = {
-                selic: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json',
-                ipca: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados/ultimos/1?formato=json',
-                inadimplenciaPF: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.21113/dados/ultimos/1?formato=json',
-                inadimplenciaPJ: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.21118/dados/ultimos/1?formato=json',
-                ofertaCreditoPF: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.20629/dados/ultimos/1?formato=json',
-                ofertaCreditoPJ: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.20624/dados/ultimos/1?formato=json',
-            };
-
-            // Fazendo as requisições em paralelo
-            const [
-                respostaSelic,
-                respostaIPCA,
-                respostaInadPF,
-                respostaInadPJ,
-                respostaOfertaPF,
-                respostaOfertaPJ,
-            ] = await Promise.all([
-                fetch(urls.selic),
-                fetch(urls.ipca),
-                fetch(urls.inadimplenciaPF),
-                fetch(urls.inadimplenciaPJ),
-                fetch(urls.ofertaCreditoPF),
-                fetch(urls.ofertaCreditoPJ),
-            ]);
-
-            // Verifica se todas as respostas foram bem-sucedidas
-            if (!respostaSelic.ok || !respostaIPCA.ok || !respostaInadPF.ok || !respostaInadPJ.ok || !respostaOfertaPF.ok || !respostaOfertaPJ.ok) {
-                throw new Error('Erro ao buscar os dados das APIs');
-            }
-
-            // Processando as respostas
-            const dadosSelic = await respostaSelic.json();
-            const dadosIPCA = await respostaIPCA.json();
-            const dadosInadPF = await respostaInadPF.json();
-            const dadosInadPJ = await respostaInadPJ.json();
-            const dadosOfertaPF = await respostaOfertaPF.json();
-            const dadosOfertaPJ = await respostaOfertaPJ.json();
-
-            // Extraindo os dados
-            const selicData = dadosSelic[0];
-            const ipcaData = dadosIPCA[0];
-            const inadPFData = dadosInadPF[0];
-            const inadPJData = dadosInadPJ[0];
-            const ofertaPFData = dadosOfertaPF[0];
-            const ofertaPJData = dadosOfertaPJ[0];
-
-            // Formatando os dados para exibição
-            const indicadores = [
-                `Taxa SELIC (${selicData.data}): ${parseFloat(selicData.valor).toFixed(2)}%`,
-                `IPCA (${ipcaData.data}): ${parseFloat(ipcaData.valor).toFixed(2)}%`,
-                `Inadimplência PF (${inadPFData.data}): ${parseFloat(inadPFData.valor).toFixed(2)}%`,
-                `Inadimplência PJ (${inadPJData.data}): ${parseFloat(inadPJData.valor).toFixed(2)}%`,
-                `Oferta de Crédito PF (${ofertaPFData.data}): R$ ${Number(ofertaPFData.valor).toFixed(2)} Milhões`,
-                `Oferta de Crédito PJ (${ofertaPJData.data}): R$ ${Number(ofertaPJData.valor).toFixed(2)} Milhões`,
-            ];
-
-            // Exibindo os indicadores em um ticker horizontal
-            exibirTicker(indicadores);
-
-        } catch (error) {
-            document.getElementById('indicadores-data').innerHTML = '<p>Não foi possível carregar os indicadores econômicos.</p>';
-            console.error('Erro ao buscar indicadores econômicos:', error);
-        }
-    }
-
-    function exibirTicker(indicadores) {
-        const tickerContainer = document.getElementById('indicadores-data');
-        tickerContainer.innerHTML = ''; // Limpa o conteúdo anterior
-
-        const tickerContent = document.createElement('div');
-        tickerContent.classList.add('ticker-content');
-
-        indicadores.forEach(indicador => {
-            const span = document.createElement('span');
-            span.textContent = indicador;
-            tickerContent.appendChild(span);
-        });
-
-        tickerContainer.appendChild(tickerContent);
-    }
-
-    // Chama a função ao carregar a página
-    buscarIndicadoresEconomicos();
-</script>
-
+        <div class="container">
+            <div id="indicadores-data">
+                <!-- O conteúdo será inserido pelo JavaScript -->
+            </div>
+        </div>
     </section>
 
     <!-- Seção Contato -->
@@ -400,7 +314,97 @@
         <p>&copy; 2024 API Banks. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Script para buscar dados dos indicadores econômicos -->
+    <script>
+        async function buscarIndicadoresEconomicos() {
+            try {
+                // URLs das APIs
+                const urls = {
+                    selic: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json',
+                    ipca: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados/ultimos/1?formato=json',
+                    inadimplenciaPF: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.21113/dados/ultimos/1?formato=json',
+                    inadimplenciaPJ: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.21118/dados/ultimos/1?formato=json',
+                    ofertaCreditoPF: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.20629/dados/ultimos/1?formato=json',
+                    ofertaCreditoPJ: 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.20624/dados/ultimos/1?formato=json',
+                };
+
+                // Fazendo as requisições em paralelo
+                const [
+                    respostaSelic,
+                    respostaIPCA,
+                    respostaInadPF,
+                    respostaInadPJ,
+                    respostaOfertaPF,
+                    respostaOfertaPJ,
+                ] = await Promise.all([
+                    fetch(urls.selic),
+                    fetch(urls.ipca),
+                    fetch(urls.inadimplenciaPF),
+                    fetch(urls.inadimplenciaPJ),
+                    fetch(urls.ofertaCreditoPF),
+                    fetch(urls.ofertaCreditoPJ),
+                ]);
+
+                // Verifica se todas as respostas foram bem-sucedidas
+                if (!respostaSelic.ok || !respostaIPCA.ok || !respostaInadPF.ok || !respostaInadPJ.ok || !respostaOfertaPF.ok || !respostaOfertaPJ.ok) {
+                    throw new Error('Erro ao buscar os dados das APIs');
+                }
+
+                // Processando as respostas
+                const dadosSelic = await respostaSelic.json();
+                const dadosIPCA = await respostaIPCA.json();
+                const dadosInadPF = await respostaInadPF.json();
+                const dadosInadPJ = await respostaInadPJ.json();
+                const dadosOfertaPF = await respostaOfertaPF.json();
+                const dadosOfertaPJ = await respostaOfertaPJ.json();
+
+                // Extraindo os dados
+                const selicData = dadosSelic[0];
+                const ipcaData = dadosIPCA[0];
+                const inadPFData = dadosInadPF[0];
+                const inadPJData = dadosInadPJ[0];
+                const ofertaPFData = dadosOfertaPF[0];
+                const ofertaPJData = dadosOfertaPJ[0];
+
+                // Formatando os dados para exibição
+                const indicadores = [
+                    `Taxa SELIC (${selicData.data}): ${parseFloat(selicData.valor).toFixed(2)}%`,
+                    `IPCA (${ipcaData.data}): ${parseFloat(ipcaData.valor).toFixed(2)}%`,
+                    `Inadimplência PF (${inadPFData.data}): ${parseFloat(inadPFData.valor).toFixed(2)}%`,
+                    `Inadimplência PJ (${inadPJData.data}): ${parseFloat(inadPJData.valor).toFixed(2)}%`,
+                    `Oferta de Crédito PF (${ofertaPFData.data}): R$ ${Number(ofertaPFData.valor).toFixed(2)} Milhões`,
+                    `Oferta de Crédito PJ (${ofertaPJData.data}): R$ ${Number(ofertaPJData.valor).toFixed(2)} Milhões`,
+                ];
+
+                // Exibindo os indicadores em um ticker horizontal
+                exibirTicker(indicadores);
+
+            } catch (error) {
+                document.getElementById('indicadores-data').innerHTML = '<p>Não foi possível carregar os indicadores econômicos.</p>';
+                console.error('Erro ao buscar indicadores econômicos:', error);
+            }
+        }
+
+        function exibirTicker(indicadores) {
+            const tickerContainer = document.getElementById('indicadores-data');
+            tickerContainer.innerHTML = ''; // Limpa o conteúdo anterior
+
+            const tickerContent = document.createElement('div');
+            tickerContent.classList.add('ticker-content');
+
+            indicadores.forEach(indicador => {
+                const span = document.createElement('span');
+                span.textContent = indicador;
+                tickerContent.appendChild(span);
+            });
+
+            tickerContainer.appendChild(tickerContent);
+        }
+
+        // Chama a função ao carregar a página
+        buscarIndicadoresEconomicos();
+    </script>
+
 </body>
 </html>
-
 
